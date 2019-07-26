@@ -1,0 +1,11 @@
+{
+    "name": "moutlou/wnt",
+    "description": "Wordpress Nonces in OOP way",
+    "authors": [
+        {
+            "name": "Moutlou",
+            "email": "dhmm@outlook.com"
+        }
+    ],
+    "require": {}
+}
