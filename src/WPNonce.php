@@ -122,4 +122,25 @@ class WPNonce
     {
         return check_admin_referer($action, $queryArg);
     }
+    /**
+     * This function can be overridden by plugins. If no plugin redefines this function, then the
+     * standard functionality will be used.
+     *
+     * The standard function verifies the AJAX request, to prevent any processing of requests which
+     * are passed in by third-party sites or systems.
+     *
+     * Nonces should never be relied on for authentication, authorization or access control. Protect
+     * your functions using current_user_can() and always assume that nonces can be compromised.
+     *
+     * @param string $action          Action nonce Default: -1
+     * @param string $queryArg        Where to look for nonce in $_REQUEST (since 2.5) Default: false
+     * @param boolean $die            Whether to die if the nonce is invalid Default: true
+     *
+     * @return boolean                If parameter $die is set to false, this function will return a
+     *                                boolean of true if the check passes or false if the check fails.
+     */
+    public function checkAjaxReferer($action = -1, $queryArg = false, $die = true)
+    {
+        return check_ajax_referer($action, $queryArg, $die);
+    }
 }
