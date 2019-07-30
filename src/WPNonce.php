@@ -66,4 +66,17 @@ class WPNonce
     {
         return wp_nonce_field($action, $name, $referer, $echo);
     }
+    /**
+     * Retrieve URL with nonce added to URL query. The returned result is escaped for display.
+     *
+     * @param string $actionUrl     URL to add nonce action
+     * @param string $action        Nonce action name. Default: -1
+     * @param string $name          Nonce name. Default: _wpnonce
+     *
+     * @return string               URL with nonce action added.
+     */
+    public function nonceUrl($actionUrl, $action = -1, $name = '_wpnonce')
+    {
+        return wp_nonce_url($actionUrl, $action, $name);
+    }
 }
