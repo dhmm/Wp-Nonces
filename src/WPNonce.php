@@ -67,6 +67,18 @@ class WPNonce
         return wp_nonce_field($action, $name, $referer, $echo);
     }
     /**
+     * The referer link is the current Request URI from the server super global. The input name
+     * is ‘_wp_http_referer’, in case you wanted to check manually.
+     *
+     * @param boolean               Whether to echo or return the referer field. Default value: true
+     *
+     * @return string               Referer field HTML markup
+     */
+    public function refererField($echo = true)
+    {
+        return wp_referer_field($echo);
+    }
+    /**
      * Retrieve URL with nonce added to URL query. The returned result is escaped for display.
      *
      * @param string $actionUrl     URL to add nonce action
