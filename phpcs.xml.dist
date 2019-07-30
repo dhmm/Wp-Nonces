@@ -4,6 +4,7 @@
 	<description>My Project coding standard.</description>
 
 	<file>./src</file>
+  <file>./tests</file>
 	<file>index.php</file>
 
 	<config name="text_domain" value="Moutlou"/>
