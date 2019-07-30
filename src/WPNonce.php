@@ -45,4 +45,25 @@ class WPNonce
     {
         return wp_create_verify_nonce($nonce, $action);
     }
+    /**
+     * Retrieves or displays the nonce hidden form field.
+     *
+     * @param string $action        Action name. Should give the context to what is taking place.
+     *                              Optional but recommended. Default: -1.
+     * @param string $name          This is the name of the nonce hidden form field to be created. Once
+     *                              the form is submitted, you can access the generated nonce via
+     *                              $_POST[$name]. Default: '_wpnonce'
+     * @param boolean $referer      Whether also the referer hidden form field should be created
+     *                              with the wp_referer_field() function. Default: true
+     * @param boolean $echo         Whether to display or return the nonce hidden form field,
+     *                              and also the referer hidden form field if the $referer argument
+     *                              is set to true. Default: true
+     *
+     * @return string               The nonce hidden form field, optionally followed by the referer
+     *                              hidden form field if the $referer argument is set to true.
+     */
+    public function nonceField($action = -1, $name = '_wpnonce', $referer = true, $echo = true)
+    {
+        return wp_nonce_field($action, $name, $referer, $echo);
+    }
 }
