@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<ruleset name="Wordpress Nonces in OOP way">
+
+	<description>My Project coding standard.</description>
+
+	<file>./src</file>
+	<file>index.php</file>
+
+	<config name="text_domain" value="Moutlou"/>
+
+	<rule ref="Inpsyde"/>
+
+</ruleset>
