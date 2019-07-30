@@ -79,4 +79,17 @@ class WPNonce
     {
         return wp_nonce_url($actionUrl, $action, $name);
     }
+    /**
+     * Display 'The link you followed has expired.' message to confirm the action being taken.
+     * If the action has the nonce explain message, then it will be displayed along with the
+     * 'Are you sure?'
+     *
+     * @param string $action        The nonce action.
+     *
+     * @return void                 This function does not return a value.
+     */
+    public function nonceAys($action)
+    {
+        return wp_nonce_ays($action);
+    }
 }
