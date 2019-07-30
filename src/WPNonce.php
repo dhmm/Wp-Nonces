@@ -92,4 +92,34 @@ class WPNonce
     {
         return wp_nonce_ays($action);
     }
+    /**
+     * Tests either if the current request carries a valid nonce, or if the current request
+     * was referred from an administration screen; depending on whether the $action argument
+     * is given (which is prefered), or not, respectively. On failure, the function dies
+     * after calling the wp_nonce_ays() function.
+     *
+     * Used to avoid CSRF security exploits. Nonces should never be relied on for authentication
+     * or authorization, access control. Protect your functions using current_user_can(),
+     * always assume Nonces can be compromised.
+     *
+     * The now improper name of the function is kept for backward compatibility and has origin
+     * in previous WordPress versions where the function only checked the referer. For details,
+     * see the Notes section below.
+     *
+     * @param string $action          Action name. Should give the context to what is taking
+     *                                place. (Since 2.0.1). Default: -1
+     * @param string $queryArg        Where to look for nonce in the $_REQUEST PHP variable.
+     *                                (Since 2.5). Default: '_wpnonce'
+     *
+     * @return boolean/void           To return boolean true, in the case of the obsolete usage,
+     *                                the current request must be referred from an administration
+     *                                screen; in the case of the prefered usage, the nonce must be
+     *                                sent and valid. Otherwise the function dies with an
+     *                                appropriate message ("Are you sure you want to do this?" by
+     *                                default).
+     */
+    public function checkAdminReferer($action = -1, $queryArg = '_wpnonce')
+    {
+        return check_admin_referer($action, $queryArg);
+    }
 }
