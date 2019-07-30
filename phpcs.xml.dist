@@ -8,6 +8,9 @@
 
 	<config name="text_domain" value="Moutlou"/>
 
-	<rule ref="Inpsyde"/>
+	<rule ref="Inpsyde">
+      <exclude name="Inpsyde.CodeQuality.ArgumentTypeDeclaration.NoArgumentType"/>
+      <exclude name="Inpsyde.CodeQuality.ReturnTypeDeclaration.NoReturnType"/>
+  </rule>
 
 </ruleset>
