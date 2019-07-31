@@ -26,6 +26,12 @@ class WPNonceTest extends TestCase
         $result = $wpNonce->nonceField();
         $this->assertEquals(1, $result);
     }
+    public function testRefererField()
+    {
+        $wpNonce = new WPNonce();
+        $result = $wpNonce->refererField();
+        $this->assertEquals(1, $result);        
+    }
 }
 
 function wp_create_nonce()
@@ -37,6 +43,10 @@ function wp_create_verify_nonce($nonce)
     return 1;
 }
 function wp_nonce_field()
+{
+    return 1;
+}
+function wp_referer_field()
 {
     return 1;
 }
