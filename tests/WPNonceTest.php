@@ -38,6 +38,24 @@ class WPNonceTest extends TestCase
       $result = $wpNonce->nonceUrl('https://github.com/dhmm');
       $this->assertEquals(1, $result);  
     }
+    public function testNonceAys()
+    {
+      $wpNonce = new WPNonce();
+      $result = $wpNonce->nonceAys('test-action');
+      $this->assertEquals(1, $result);        
+    }
+    public function testCheckAdminReferer()
+    {
+      $wpNonce = new WPNonce();
+      $result = $wpNonce->checkAdminReferer();
+      $this->assertEquals(1, $result);        
+    }
+    public function testCheckAjaxReferer()
+    {
+      $wpNonce = new WPNonce();
+      $result = $wpNonce->checkAjaxReferer();
+      $this->assertEquals(1, $result);        
+    }
 }
 
 function wp_create_nonce()
@@ -57,6 +75,18 @@ function wp_referer_field()
     return 1;
 }
 function wp_nonce_url($actionUrl)
+{
+    return 1;
+}
+function wp_nonce_ays($action)
+{
+    return 1;
+}
+function check_admin_referer()
+{
+    return 1;
+}
+function check_ajax_referer()
 {
     return 1;
 }
