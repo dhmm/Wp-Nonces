@@ -43,7 +43,7 @@ class WPNonce
      */
     public function verifyNonce($nonce, $action = -1)
     {
-        return wp_create_verify_nonce($nonce, $action);
+        return wp_verify_nonce($nonce, $action);
     }
     /**
      * Retrieves or displays the nonce hidden form field.

@@ -32,13 +32,19 @@ class WPNonceTest extends TestCase
         $result = $wpNonce->refererField();
         $this->assertEquals(1, $result);        
     }
+    public function testNonceUrl()
+    {
+      $wpNonce = new WPNonce();
+      $result = $wpNonce->nonceUrl('https://github.com/dhmm');
+      $this->assertEquals(1, $result);  
+    }
 }
 
 function wp_create_nonce()
 {
     return 1;
 }
-function wp_create_verify_nonce($nonce)
+function wp_verify_nonce($nonce)
 {
     return 1;
 }
@@ -47,6 +53,10 @@ function wp_nonce_field()
     return 1;
 }
 function wp_referer_field()
+{
+    return 1;
+}
+function wp_nonce_url($actionUrl)
 {
     return 1;
 }
